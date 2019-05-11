@@ -1,8 +1,8 @@
 package com.svit.ecommerce.service;
 
-import javax.transaction.Transactional;
-import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import com.svit.ecommerce.model.Order;
 import com.svit.ecommerce.repository.OrderRepository;
 
@@ -13,26 +13,23 @@ public class OrderServiceImpl implements OrderService {
   private OrderRepository orderRepository;
 
   public OrderServiceImpl(OrderRepository orderRepository) {
-    // TODO Auto-generated constructor stub
     this.orderRepository = orderRepository;
   }
 
   @Override
-  public @NotNull Iterable<Order> getAllOrders() {
-    // TODO Auto-generated method stub
-    return orderRepository.findAll();
+  public Iterable<Order> getAllOrders() {
+    return this.orderRepository.findAll();
   }
 
   @Override
   public Order create(Order order) {
-    // TODO Auto-generated method stub
-    return orderRepository.save(order);
+    order.setDateCreated(LocalDate.now());
+
+    return this.orderRepository.save(order);
   }
 
   @Override
   public void update(Order order) {
-    // TODO Auto-generated method stub
-    orderRepository.
-
+    this.orderRepository.save(order);
   }
 }
