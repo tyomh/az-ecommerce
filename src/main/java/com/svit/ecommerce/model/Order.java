@@ -35,6 +35,7 @@ public class Order {
   private List<OrderProduct> orderProducts = new ArrayList<>();
 
   @Transient
+  // same on transient field.
   public Double getTotalOrderPrice() {
     double sum = 0D;
     List<OrderProduct> orderProducts = getOrderProducts();

@@ -8,13 +8,12 @@ import com.svit.ecommerce.model.Product;
 import com.svit.ecommerce.service.ProductService;
 
 @RestController
-@RequestMapping("api/products")
+@RequestMapping("/api/products")
 public class ProductController {
 
   private ProductService productService;
 
   public ProductController(ProductService productService) {
-    // TODO Auto-generated constructor stub
     this.productService = productService;
   }
 
@@ -22,5 +21,4 @@ public class ProductController {
   public @NotNull Iterable<Product> getProducts() {
     return productService.getAllProducts();
   }
-
 }
