@@ -1,66 +1,86 @@
 package com.svit.ecommerce.model;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 /**
- * 
+ *
  * @author bnb
  *
  */
 @Entity
 public class Product {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @NotNull(message = "Product name is required.")
-    @Basic(optional = false)
-    private String name;
+  @NotNull(message = "Product name is required.")
+  @Basic(optional = false)
+  private String name;
 
-    private Double price;
+  private Double price;
 
-    private String pictureUrl;
+  private String pictureUrl;
 
-    public Product(Long id, @NotNull(message = "Product name is required.") String name, Double price, String pictureUrl) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.pictureUrl = pictureUrl;
-    }
+  // @Lob
+  // @Column(name = "pic")
+  // private byte[] pic;
 
-    public Product() {
-    }    public Long getId() {
-        return id;
-    }
+  public Product(Long id, @NotNull(message = "Product name is required.") String name, Double price,
+      String pictureUrl) {
+    this.id = id;
+    this.name = name;
+    this.price = price;
+    this.pictureUrl = pictureUrl;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  // public Product(Long id, @NotNull(message = "Product name is required.") String name, Double
+  // price,
+  // byte[] pic) {
+  // this.id = id;
+  // this.name = name;
+  // this.price = price;
+  // this.pic = pic;
+  // }
 
-    public String getName() {
-        return name;
-    }
+  public Product() {}
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public Double getPrice() {
-        return price;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public String getPictureUrl() {
-        return pictureUrl;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Double getPrice() {
+    return price;
+  }
+
+  public void setPrice(Double price) {
+    this.price = price;
+  }
+
+  public String getPictureUrl() {
+    return pictureUrl;
+  }
+
+  public void setPictureUrl(String pictureUrl) {
+    this.pictureUrl = pictureUrl;
+  }
 
 }
